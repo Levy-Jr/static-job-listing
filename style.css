@@ -1,0 +1,380 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root{
+  --clr-primary-300: hsl(180, 29%, 50%);
+  /*  (Background) */
+  --clr-primary-100: hsl(180, 52%, 96%);
+  /*  (Filter Tablets) */
+  --clr-primary-200: hsl(180, 31%, 95%);
+
+  --clr-primary-400: hsl(180, 8%, 52%);
+  --clr-primary-900: hsl(180, 14%, 20%);
+
+  --ff: 'League Spartan', sans-serif;
+
+  --fs: .938rem;
+  --fw-semi: 500;
+  --fw-bold: 700;
+}
+
+/* global stylings */
+
+html{
+  font-size: var(--fs);
+}
+
+body{
+  background-color: var(--clr-primary-200);
+  font-family: var(--ff);
+}
+
+/* section-stylings */
+
+.background-section{
+  background-color: var(--clr-primary-300);
+}
+
+.mobile{
+  width: 100%;
+  max-height: 30vw;
+}
+
+.desktop{
+  display: none;
+}
+
+@media (min-width: 50em){
+  .mobile{
+    display: none;
+  }
+
+  .desktop{
+    display: block;
+  }
+}
+
+.list-section{
+  margin-top: 5rem;
+  position: relative;
+}
+
+/* utility classes */
+
+.s-b{
+  display: flex;
+  justify-content: space-between;
+}
+
+.fw-semi{
+  font-weight: 500;
+}
+
+.fw-bold{
+  font-weight: 700;
+}
+
+.flex{
+  display: flex;
+}
+
+/* job-list style */
+.search-container{
+  background-color: #fff;
+  margin-inline: 2rem;
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.job-list{
+  background-color: #fff;
+  position: relative;
+  margin-inline: 2rem;
+  padding: 2rem 1rem 1rem 1.25rem;
+  border-radius: .5rem;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 50em){
+  .job-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+  }
+}
+
+.special::before{
+  content: '';
+  position: absolute;
+  background-color: var(--clr-primary-300);
+  border-radius: .5rem 0rem 0rem .5rem;
+  width: .37rem;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: 50em){
+  .job-list--header{
+    display: flex;
+    align-items: center;
+  }
+}
+
+.logo{
+  position: absolute;
+  top: -1.5rem;
+  max-width: 3rem;
+}
+
+@media (min-width: 50em){
+  .logo{
+    max-width: none;
+    position: static;
+    margin-right: .8rem;
+  }
+}
+
+/* ul filter list */
+.list-informations{
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 50em){
+  .list-informations{
+    padding: 0;
+    display: flex;
+  }
+}
+
+.list-informations::after{
+  content: '';
+  position: absolute;
+  background-color: var(--clr-primary-900);
+  width: 100%;
+  height: 2px;
+  bottom: 35%;
+  opacity: .5;
+}
+
+@media (min-width: 50em){
+  .list-informations::after{
+    display: none;
+  }
+}
+
+.button-list {
+  list-style-type: none;
+}
+
+/* filter skills */
+
+.filter-skills{
+  flex-wrap: wrap;
+}
+
+@media (min-width: 50em){
+  .filter-skills{
+    max-width: 50%;
+    flex-wrap: wrap;
+  }
+}
+
+.filter-skills > li:not(:last-child){
+  margin-right: 1rem;
+}
+
+.list-informations > li:not(:first-child){
+  padding-left: 1.75rem;
+  position: relative;
+}
+
+.list-informations > li:not(:first-child)::before{
+  content: '';
+  position: absolute;
+  background-color: var(--clr-primary-900);
+  left: 15%;
+  bottom: 50%;
+  width: 3px;
+  height: 3px;
+  border-radius: 100%;
+}
+
+.filter-button{
+  font-family: var(--ff);
+  background-color: var(--clr-primary-200);
+  color: var(--clr-primary-300);
+  padding: .4em .6em;
+  border-radius: .2rem;
+  cursor: pointer;
+  border: 0;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 50em){
+  .filter-button{
+    margin-block: .25rem;
+  }
+}
+
+.filter-button:hover{
+  background-color: var(--clr-primary-300);
+  color: var(--clr-primary-200);
+}
+
+/* search container */
+.filtered-buttons{
+  display: flex;
+}
+
+.filtered-button{
+  font-family: var(--ff);
+  background-color: var(--clr-primary-200);
+  color: var(--clr-primary-300);
+  padding: .4em .6em;
+  border-radius: .2rem 0rem 0rem .2rem;
+  cursor: pointer;
+  border: 0;
+  margin-bottom: 1rem;
+}
+
+.filtered-button + .filtered-button {
+  margin-left: .5rem;
+}
+
+@media (min-width: 50em){
+  .filtered-button{
+    margin-block: .25rem;
+  }
+}
+
+.filtered-button:hover{
+  background-color: var(--clr-primary-300);
+  color: var(--clr-primary-200);
+}
+
+.remove-button {
+  background-color: var(--clr-primary-300);
+  border: 0;
+  cursor: pointer;
+  margin-block: .25rem;
+  padding: .5rem;
+  border-radius: 0rem .25rem .25rem 0rem;
+  margin-right: 1rem;
+}
+
+.remove-button:hover {
+  background-color: var(--clr-primary-900);
+}
+
+/* clear-button */
+
+.clear-button{
+  background: transparent;
+  border: 0;
+  opacity: .5;
+}
+
+.clear-button:hover{
+  color: var(--clr-primary-300);
+  text-decoration: underline;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.company{
+  margin-right: 1rem;
+  color: var(--clr-primary-300);
+}
+
+.position{
+  margin-block: .4rem;
+  cursor: pointer;
+}
+
+.position:hover{
+  color: var(--clr-primary-300);
+}
+
+.new{
+  background-color: var(--clr-primary-300);
+  color: #fff;
+  margin-right: .5rem;
+}
+
+.featured{
+  background-color: var(--clr-primary-900);
+  color: #fff;
+}
+
+.new, .featured{
+  border-radius: 100vmax;
+  text-transform: uppercase;
+  padding: .125em .5em 0em;
+}
